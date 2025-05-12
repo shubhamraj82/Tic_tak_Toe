@@ -20,7 +20,7 @@ nav ul{
 }
 
 .gameContainer{
-
+    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -55,6 +55,10 @@ nav ul{
     font-family:"Roboto", sans-serif;
 }
 
+.gameInfo h1{
+    font-size: 2.5rem;
+}
+
 .imgbox img{
     width: 0;
     transition: width is ease-in-out;
@@ -84,4 +88,32 @@ nav ul{
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     font-weight: bolder;
+}
+  
+
+@media screen and (max-width: 950px)
+{
+    .gameContainer{
+        flex-wrap: wrap;
+    }
+    .gameInfo{
+        margin-top: 34px;
+    }
+    .gameInfo h1{
+        font-size: 1.5rem;
+    }
+    .container { 
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+}
+
+.winning-line{
+    position: absolute;
+    background-color: red;
+    height: 5px;
+    width: 30vw;
+    transform-origin: center;
+    z-index: 1;
+    display: none;
 }

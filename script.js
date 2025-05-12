@@ -13,25 +13,28 @@ const changeTurn=()=>{
 //Function to check for win
 const checkWin=()=>{
     boxtext=document.getElementsByClassName('boxtext');
-    let wins=[
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6],
-    ]
+    let wins = [
+    [0, 1, 2, 10, 0, 0],    // Horizontal top
+    [3, 4, 5, 10, 10, 0],   // Horizontal middle
+    [6, 7, 8, 10, 20, 0],   // Horizontal bottom
+    [0, 3, 6, 0, 10, 90],   // Vertical left
+    [1, 4, 7, 10, 10, 90],  // Vertical middle
+    [2, 5, 8, 20, 10, 90],  // Vertical right
+    [0, 4, 8, 10, 10, 45],  // Diagonal top-left to bottom-right
+    [2, 4, 6, 10, 10, -45], // Diagonal top-right to bottom-left
+];
     wins.forEach(e=>{
         if((boxtext[e[0]].innerText === boxtext[e[1]].innerText) && (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !== "")){
             document.querySelector('.info').innerText= boxtext[e[0]].innerText + "won";
             isgameover=true;
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width="200px";
-    }  
-  })
 
-}
+            const winning_line=document.querySelector('.winning-line');
+            winning_line.style.display='block';
+            winning_line.style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+    }  
+  });
+};
 
 //game logic
 let boxes=document.getElementsByClassName("box");
