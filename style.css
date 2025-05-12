@@ -46,13 +46,18 @@ nav ul{
     background-color: rgb(177, 160, 192);
 }
 
+.info{
+    font-size: 22px;
+}
+
 .gameInfo{
     padding: 0 34px;
     font-family:"Roboto", sans-serif;
 }
 
 .imgbox img{
-    display: none;
+    width: 0;
+    transition: width is ease-in-out;
 }
 
 .br-0{
@@ -69,4 +74,14 @@ nav ul{
 
 .bb-0{
     border-bottom: 0;
+}
+
+#reset{
+    margin: 0 23px;
+    padding: 1px 18px;
+    background: rgb(216, 191, 216);
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: bolder;
 }
